@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.1/dist/full.css" rel="stylesheet" type="text/css" />
+   <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+   <main>
+      <!--  phones search bar start -->
+      <section>
+         <div class="my-10 mx-auto text-center">
+            <input type="text" id="search-field" placeholder="Phones search..."
+               class="input w-full max-w-xs shadow-xl border" />
+            <button class="btn btn-outline btn-success px-5 py-2" id="search-btn">Search</button>
+         </div>
+      </section>
+      <!--  phones search bar end -->
+      <!-- all phones start -->
+      <section>
+         <div id="phones-container"
+            class="grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-5 w-9/12 mx-auto">
+
+         </div>
+      </section>
+      <!-- all phones end -->
+   </main>
+   <script src="./js/app.js"></script>
+</body>
+
+</html>
