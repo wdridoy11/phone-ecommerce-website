@@ -8,12 +8,28 @@ const phoneApiLoad = async (searchText) => {
    displayPhone(phoneData.data)
 }
 
+phoneApiLoad("apple");
 /*==================================================
                   print display elements
   ==================================================*/
-const displayPhone = data => {
+const displayPhone = phone => {
    const phonesContainer = document.getElementById("phones-container");
-   data.map(phones => {
+   phonesContainer.innerHTML = "";
+   // display only 20 phones print
+   phone = phone.slice(0, 20);
+   // display not phones found
+   const notPhoneMessage = document.getElementById("no-phones-message");
+   if (phone.length === 0) {
+      notPhoneMessage.classList.remove("hidden")
+   } else {
+      notPhoneMessage.classList.add("hidden")
+   }
+
+
+
+
+   phone.map(phones => {
+      // create a new HTML element and display it
       const parentDiv = document.createElement("div");
       parentDiv.innerHTML = `
       <div class="card py-5 bg-base-100 shadow-xl">
@@ -30,11 +46,10 @@ const displayPhone = data => {
    </div>
    `
       phonesContainer.appendChild(parentDiv)
-      console.log(phones)
    })
 }
 /*==================================================
-                  print display elements
+            search text and call api
   ==================================================*/
 document.getElementById("search-btn").addEventListener("click", function () {
    const searchField = document.getElementById("search-field");
@@ -43,4 +58,6 @@ document.getElementById("search-btn").addEventListener("click", function () {
    phoneApiLoad(searchFieldText);
 })
 
-phoneApiLoad();
+/*==================================================
+            search text and call api
+  ==================================================*/
