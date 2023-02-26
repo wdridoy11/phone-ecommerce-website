@@ -25,9 +25,6 @@ const displayPhone = phone => {
       notPhoneMessage.classList.add("hidden")
    }
 
-
-
-
    phone.map(phones => {
       // create a new HTML element and display it
       const parentDiv = document.createElement("div");
@@ -47,11 +44,14 @@ const displayPhone = phone => {
    `
       phonesContainer.appendChild(parentDiv)
    })
+   // stop
+   toggleLoader(false)
 }
 /*==================================================
             search text and call api
   ==================================================*/
 document.getElementById("search-btn").addEventListener("click", function () {
+   toggleLoader(true)
    const searchField = document.getElementById("search-field");
    const searchFieldText = searchField.value;
    searchField.value = "";
@@ -59,5 +59,22 @@ document.getElementById("search-btn").addEventListener("click", function () {
 })
 
 /*==================================================
-            search text and call api
+            loader loading 
   ==================================================*/
+
+const toggleLoader = (isLoading) => {
+   const loaderSection = document.getElementById("loader");
+   if (isLoading) {
+      loaderSection.classList.remove("hidden")
+   } else {
+      loaderSection.classList.add("hidden")
+   }
+}
+
+
+
+
+
+
+
+
